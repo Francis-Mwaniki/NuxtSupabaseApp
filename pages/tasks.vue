@@ -14,7 +14,7 @@
       <div
         class="bg-slate-800 max-w-md flex justify-center items-center mx-auto rounded-md flex-col p-10"
       >
-        <div class="flex mx-auto justify-center items-center flex-row gap-x-2">
+        <div class="flex mx-auto justify-center items-center flex-col gap-x-2">
           <input
             type="text"
             v-model="addNewTask"
@@ -22,7 +22,7 @@
             placeholder="make something..."
           />
           <button
-            class="bg-indigo-600 rounded-md text-white font-mono py-3 px-4"
+            class="bg-indigo-600 rounded-md text-white font-mono py-2 px-7"
             @click="createData"
           >
             Enter.
@@ -89,7 +89,7 @@ export default {
     const logout = async () => {
       await client.auth.signOut();
       router.push("/");
-      location.reload();
+      location.reload;
     };
     console.log(user);
 
