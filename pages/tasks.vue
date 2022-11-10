@@ -89,6 +89,7 @@ export default {
     const logout = async () => {
       await client.auth.signOut();
       router.push("/");
+      location.reload();
     };
     console.log(user);
 
