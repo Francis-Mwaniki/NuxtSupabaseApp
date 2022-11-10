@@ -6,6 +6,10 @@
     <main
       class="bg-slate-900 min-h-screen pb-6 flex justify-center flex-col items-center gap-y-11"
     >
+      <span class="flex justify-center items-center mx-auto flex-col mt-5" v-show="user">
+        <img :src="user.user_metadata.avatar_url" class="h-20 w-20 rounded-full" alt="" />
+        <h3 class="text-white">{{ user.email }}</h3>
+      </span>
       <h1 class="text-white text-2xl text-center">Supabase todo App</h1>
       <div
         class="bg-slate-800 max-w-md flex justify-center items-center mx-auto rounded-md flex-col p-10"
@@ -81,6 +85,7 @@ export default {
       await client.auth.signOut();
       router.push("/");
     };
+    console.log(user);
 
     fetchAllData();
     return { newTask, fetchAllData, user, addNewTask, createData, logout };
