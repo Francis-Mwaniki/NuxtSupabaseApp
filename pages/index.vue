@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-slate-900 p-3 min-h-screen overflow-y-hidden">
+  <main class="bg-slate-900 p-3 min-h-screen">
     <h1
       class="text-gray-300 font-mono flex justify-center items-center mx-auto text-xl border-b-2 border-slate-400 max-w-xs"
     >

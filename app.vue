@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden">
+  <div class="">
     <NuxtPage />
     <FootVue />
   </div>
