@@ -14,20 +14,20 @@
       <div
         class="bg-slate-800 max-w-md flex justify-center items-center mx-auto rounded-md flex-col p-10"
       >
-        <div class="flex mx-auto justify-center items-center flex-col gap-x-2">
+        <div class="flex mx-auto justify-center items-center gap-x-2">
           <input
             type="text"
             v-model="addNewTask"
             class="px-5 py-3 bg-yellow-100 rounded-lg text-black"
             placeholder="make something..."
           />
-          <button
-            class="bg-indigo-600 rounded-md text-white font-mono py-2 px-7"
-            @click="createData"
-          >
-            Enter.
-          </button>
         </div>
+        <button
+          class="bg-indigo-600 rounded-md text-white font-mono py-2 px-7"
+          @click="createData"
+        >
+          Enter.
+        </button>
         <div
           class="flex justify-center items-center mx-auto max-w-md flex-col"
           v-for="task in newTask"
