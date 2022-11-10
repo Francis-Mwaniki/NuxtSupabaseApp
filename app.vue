@@ -10,5 +10,11 @@ export default {
   components: {
     FootVue,
   },
+
+  watch: {
+    $route() {
+      location.reload();
+    },
+  },
 };
 </script>
