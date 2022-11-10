@@ -50,6 +50,11 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 export default {
+  watch: {
+    $route() {
+      location.reload();
+    },
+  },
   setup() {
     const router = useRouter();
     const client = useSupabaseClient();
