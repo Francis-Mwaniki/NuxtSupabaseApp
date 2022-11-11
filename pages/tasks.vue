@@ -53,7 +53,7 @@
         <!-- here -->
         <div class="grid md:grid-cols-3 grid-cols-1 mt-10 gap-5">
           <div
-            class="card w-full p-5 rounded-md bg-white dark:bg-gray-800"
+            class="card w-full p-5 rounded-md bg-gray-800"
             v-for="task in newTask"
             :key="task.id"
           >
