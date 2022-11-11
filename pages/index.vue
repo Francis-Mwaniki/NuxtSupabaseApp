@@ -4,7 +4,7 @@
       <img
         src="https://cdn.pixabay.com/photo/2017/03/23/12/56/security-2168233_960_720.jpg"
         alt=""
-        class="w-full h-3/4 object-cover"
+        class="w-full h-3/4 md:h-full object-cover"
       />
     </div>
 
