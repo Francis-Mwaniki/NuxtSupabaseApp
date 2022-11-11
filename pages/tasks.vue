@@ -1,7 +1,25 @@
 <template>
   <main class="relative">
     <div class="absolute top-2 right-3 text-white">
-      <button @click="logout">Logout</button>
+      <button
+        @click="logout"
+        class="bg-indigo-600 rounded-lg border-none ring-1 ring-white p-2 flex justify-center items-center m-auto flow-row"
+      >
+        Logout
+        <span
+          ><svg
+            class="ml-2 -mr-1 w-4 h-4"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path></svg
+        ></span>
+      </button>
     </div>
     <main
       class="bg-slate-900 min-h-screen pb-6 flex justify-center flex-col items-center gap-y-11"
@@ -12,7 +30,7 @@
       </span>
       <h1 class="text-white text-2xl text-center">Supabase todo App</h1>
       <div
-        class="bg-slate-800 max-w-md flex justify-center items-center mx-auto rounded-md flex-col p-10"
+        class="bg-slate-800 flex justify-center items-center mx-auto rounded-md flex-col p-10"
       >
         <div class="flex mx-auto justify-center items-center gap-x-2">
           <input
@@ -28,19 +46,59 @@
         >
           Enter.
         </button>
-        <div
-          class="flex justify-center items-center mx-auto max-w-md flex-col"
-          v-for="task in newTask"
-          :key="task.id"
-        >
-          <div class="flex justify-start items-center mx-auto pt-3 gap-3 min-w-max mt-1">
-            <div class="text-white px-7">{{ task.tasks }}</div>
-            <button class="bg-emerald-700 px-7 rounded-lg border-none text-white">
-              {{ task.completed }}
-            </button>
+        <!-- here -->
+        <div class="grid md:grid-cols-3 grid-cols-1 mt-10 gap-5">
+          <div
+            class="card w-full p-5 rounded-md bg-white dark:bg-gray-800"
+            v-for="task in newTask"
+            :key="task.id"
+          >
+            <div class="wrapper-button w-full box-border mt-4">
+              <div
+                class="card max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+              >
+                <a href="#">
+                  <img
+                    class="rounded-t-lg"
+                    src="https://flowbite.com/docs/images/blog/image-1.jpg"
+                    alt=""
+                  />
+                </a>
+                <div class="p-5">
+                  <a href="#">
+                    <h5
+                      class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                    >
+                      {{ task.tasks }}
+                    </h5>
+                  </a>
+                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    {{ task.completed }}
+                  </p>
+                  <button
+                    class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    update
+                    <svg
+                      class="ml-2 -mr-1 w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <!-- end -->
     </main>
   </main>
 </template>
