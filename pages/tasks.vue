@@ -1,9 +1,9 @@
 <template>
-  <main class="relative overflow-hidden">
+  <main class="relative overflow-hidden bg-slate-900">
     <div class="text-white">
       <button
         @click="logout"
-        class="absolute top-2 right-3 rounded-lg border-none ring-1 ring-white px-2 py-1 flex justify-center items-center m-auto flow-row"
+        class="absolute top-1 md:right-32 right-3 rounded-lg border-none ring-1 ring-white px-2 py-1 flex justify-center items-center m-auto flow-row"
       >
         Logout
         <span>
@@ -12,7 +12,7 @@
       </button>
       <nuxt-link
         to="/Setting"
-        class="rounded-lg border-none ring-1 absolute top-2 right-36 ring-white px-2 py-1 flex justify-center items-center m-auto flow-row"
+        class="rounded-lg border-none ring-1 absolute top-1 md:left-32 left-3 ring-white px-2 py-1 flex justify-center items-center m-auto flow-row"
       >
         setting
         <span>
@@ -21,9 +21,9 @@
       </nuxt-link>
     </div>
     <main
-      class="bg-slate-900 min-h-screen pb-6 flex justify-center flex-col items-center gap-y-11 overflow-auto"
+      class="bg-slate-900 min-h-screen pb-6 flex justify-center flex-col items-center gap-y-11 overflow-auto max-w-6xl mx-auto"
     >
-      <span class="flex justify-center items-center mx-auto flex-col mt-5" v-show="user">
+      <span class="flex justify-center items-center mx-auto flex-col mt-10" v-show="user">
         <img :src="user.user_metadata.avatar_url" class="h-20 w-20 rounded-full" alt="" />
         <h3 class="text-white">
           <span class="font-extrabold">Signed as </span
@@ -59,7 +59,7 @@
           >
             <div class="wrapper-button w-full box-border mt-4">
               <div
-                class="card max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+                class="card sm:max-w-sm max-w-md rounded-lg border border-gray-200 shadow-md bg-gray-800 dark:border-gray-700"
               >
                 <a href="#">
                   <img class="rounded-t-lg" alt="" />
@@ -67,7 +67,7 @@
                 <div class="p-5">
                   <a href="#">
                     <h5
-                      class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white"
+                      class="mb-2 text-2xl tracking-tight text-gray-100"
                       :class="`${
                         task.completed
                           ? 'line-through text-gray-600 italic'
