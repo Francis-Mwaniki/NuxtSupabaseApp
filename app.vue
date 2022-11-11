@@ -1,15 +1,11 @@
 <template>
   <div class="">
     <NuxtPage />
-    <FootVue />
   </div>
 </template>
 <script>
-import FootVue from "./components/Foot.vue";
 export default {
-  components: {
-    FootVue,
-  },
+  components: {},
 
   watch: {
     $route() {

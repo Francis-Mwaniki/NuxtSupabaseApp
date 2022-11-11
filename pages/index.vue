@@ -1,63 +1,185 @@
 <template>
-  <main class="bg-slate-900 p-3 min-h-screen">
-    <h1
-      class="text-gray-300 font-mono flex justify-center items-center mx-auto text-xl border-b-2 border-slate-400 max-w-xs"
-    >
-      Welcome to Supabase!
-    </h1>
-    <div
-      class="bg-slate-800 rounded-md p-2 mt-10 max-w-sm h-96 flex flex-col gap-y-3 justify-center items-center mx-auto"
-    >
-      <h3 class="text-gray-300 font-mono">SignIn with Github or Google</h3>
-      <button
-        class="flex justify-self-center items-center mx-auto bg-gray-600 px-11 rounded-lg py-1"
-        @click="signInWithGithub"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          x="0px"
-          y="0px"
-          width="30"
-          height="30"
-          viewBox="0 0 64 64"
-        >
-          <path
-            d="M32 6C17.641 6 6 17.641 6 32c0 12.277 8.512 22.56 19.955 25.286-.592-.141-1.179-.299-1.755-.479V50.85c0 0-.975.325-2.275.325-3.637 0-5.148-3.245-5.525-4.875-.229-.993-.827-1.934-1.469-2.509-.767-.684-1.126-.686-1.131-.92-.01-.491.658-.471.975-.471 1.625 0 2.857 1.729 3.429 2.623 1.417 2.207 2.938 2.577 3.721 2.577.975 0 1.817-.146 2.397-.426.268-1.888 1.108-3.57 2.478-4.774-6.097-1.219-10.4-4.716-10.4-10.4 0-2.928 1.175-5.619 3.133-7.792C19.333 23.641 19 22.494 19 20.625c0-1.235.086-2.751.65-4.225 0 0 3.708.026 7.205 3.338C28.469 19.268 30.196 19 32 19s3.531.268 5.145.738c3.497-3.312 7.205-3.338 7.205-3.338.567 1.474.65 2.99.65 4.225 0 2.015-.268 3.19-.432 3.697C46.466 26.475 47.6 29.124 47.6 32c0 5.684-4.303 9.181-10.4 10.4 1.628 1.43 2.6 3.513 2.6 5.85v8.557c-.576.181-1.162.338-1.755.479C49.488 54.56 58 44.277 58 32 58 17.641 46.359 6 32 6zM33.813 57.93C33.214 57.972 32.61 58 32 58 32.61 58 33.213 57.971 33.813 57.93zM37.786 57.346c-1.164.265-2.357.451-3.575.554C35.429 57.797 36.622 57.61 37.786 57.346zM32 58c-.61 0-1.214-.028-1.813-.07C30.787 57.971 31.39 58 32 58zM29.788 57.9c-1.217-.103-2.411-.289-3.574-.554C27.378 57.61 28.571 57.797 29.788 57.9z"
-          ></path>
-        </svg>
-      </button>
-      <button
-        class="flex justify-self-center items-center mx-auto bg-gray-600 px-11 rounded-lg py-1"
-        @click="signInWithGoogle"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          x="0px"
-          y="0px"
-          width="30"
-          height="30"
-          viewBox="0 0 48 48"
-        >
-          <path
-            fill="#FFC107"
-            d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
-          ></path>
-          <path
-            fill="#FF3D00"
-            d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
-          ></path>
-          <path
-            fill="#4CAF50"
-            d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
-          ></path>
-          <path
-            fill="#1976D2"
-            d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
-          ></path>
-        </svg>
-      </button>
+  <section
+    class="flex flex-col md:flex-row h-screen items-center overflow-hidden relative"
+  >
+    <div class="bg-indigo-600 lg:block w-full md:w-1/2 xl:w-2/3 h-screen" v-if="!user">
+      <img
+        src="https://cdn.pixabay.com/photo/2017/03/23/12/56/security-2168233_960_720.jpg"
+        alt=""
+        class="w-full h-full object-cover"
+      />
     </div>
-  </main>
+
+    <div class="bg-indigo-600 lg:block w-full md:w-1/2 xl:w-2/3 h-screen" v-else>
+      <img
+        src="https://cdn.pixabay.com/photo/2017/03/23/12/56/security-2168234__340.jpg"
+        alt=""
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div
+      class="bg-slate-900 w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center"
+    >
+      <div class="w-full h-100">
+        <span class="ml-4 flex justify-center items-center mx-auto">
+          <img
+            src="https://app.supabase.com/img/supabase-logo.svg"
+            alt=""
+            class="h-12 w-12"
+          />
+        </span>
+        <h1
+          class="text-xl md:text-2xl font-bold text-white leading-tight mt-12 justify-center items-center flex mx-auto"
+        >
+          Log in to your account
+        </h1>
+
+        <!--  <form class="mt-6" action="#" method="POST">
+          <div>
+            <label class="block text-gray-700">Email Address</label>
+            <input
+              type="email"
+              name=""
+              id=""
+              placeholder="Enter Email Address"
+              class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+              autofocus
+              autocomplete
+              required
+            />
+          </div>
+          <div class="mt-4">
+            <label class="block text-gray-700">Password</label>
+            <input
+              type="password"
+              name=""
+              id=""
+              placeholder="Enter Password"
+              minlength="6"
+              class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+              required
+            />
+          </div>
+          <div class="text-right mt-2">
+            <a
+              href="#"
+              class="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700"
+              >Forgot Password?</a
+            >
+          </div>
+          <button
+            type="submit"
+            class="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg px-4 py-3 mt-6"
+          >
+            Log In
+          </button>
+        </form> -->
+
+        <hr class="my-6 border-gray-300 w-full" />
+
+        <button
+          type="button"
+          class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-4 border border-gray-300"
+          @click="signInWithGoogle"
+        >
+          <div class="flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              class="w-6 h-6"
+              viewBox="0 0 48 48"
+            >
+              <defs>
+                <path
+                  id="a"
+                  d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"
+                />
+              </defs>
+              <clipPath id="b">
+                <use xlink:href="#a" overflow="visible" />
+              </clipPath>
+              <path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z" />
+              <path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z" />
+              <path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z" />
+              <path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z" />
+            </svg>
+            <span class="ml-4"> Log in with Google</span>
+          </div>
+        </button>
+        <!--    <button
+          type="button"
+          class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300"
+          @click="handleSignTwitter"
+          v-if="!isSignedIn"
+        >
+          <div class="flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="30"
+              height="30"
+              viewBox="0 0 50 50"
+            >
+              <path
+                d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z"
+              ></path>
+            </svg>
+            <span class="ml-4"> Log in with Twitter</span>
+          </div>
+        </button> -->
+
+        <button
+          type="button"
+          class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 mt-1 text-gray-900 font-semibold rounded-lg px-4 py-2 border border-gray-300"
+          @click="signInWithGithub"
+        >
+          <div class="flex items-center justify-center">
+            <svg
+              fill="currentColor"
+              class="w-6 h-6 m-2"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+            <span class="ml-4"> Log in with Github</span>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div
+      v-show="open"
+      class="fixed bottom-0 right-0 w-full md:bottom-8 md:right-12 md:w-auto z-60"
+    >
+      <div
+        class="bg-gray-800 text-gray-50 text-sm p-3 md:rounded shadow-lg flex justify-between"
+      >
+        <div>
+          👉
+          <nuxt-link to="/tasks" class="hover:underline m-1 text-white underline"
+            >Tasks</nuxt-link
+          >
+          <nuxt-link to="/Setting" class="hover:underline m-1 text-white underline"
+            >Setting</nuxt-link
+          >
+        </div>
+        <button class="text-gray-500 hover:text-gray-400 ml-5" @click="open = false">
+          <span class="sr-only">Close</span>
+          <svg class="w-4 h-4 flex-shrink-0 fill-current" viewBox="0 0 16 16">
+            <path
+              d="M12.72 3.293a1 1 0 00-1.415 0L8.012 6.586 4.72 3.293a1 1 0 00-1.414 1.414L6.598 8l-3.293 3.293a1 1 0 101.414 1.414l3.293-3.293 3.293 3.293a1 1 0 001.414-1.414L9.426 8l3.293-3.293a1 1 0 000-1.414z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -65,6 +187,7 @@ export default {
   setup() {
     const user = useSupabaseUser();
     const { auth } = useSupabaseClient();
+    const open = ref(true);
     watchEffect(() => {
       if (user.value) {
         navigateTo("/tasks");
@@ -88,7 +211,7 @@ export default {
       fetchedData.value.push(data);
       console.log(data);
     };
-    return { user, auth, signInWithGithub, signInWithGoogle };
+    return { user, auth, signInWithGithub, signInWithGoogle, open };
   },
 };
 </script>
