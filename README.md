@@ -11,6 +11,6 @@ A Nuxt 3 app that displays how to use [ Auth Routes & Middleware](https://v3.nux
 ## How to start
 
 1. Add supabase uri & supabase key to `.env` file
-1. Install dependencies with `npm install --force`
+1. Install dependencies with `npm install --force` or `yarn`
 1. Run dev with `npm run dev`
 1. Build & deploy if you want to `npm run build`
