@@ -1,6 +1,6 @@
 <template>
   <section class="flex flex-col md:flex-row h-screen items-center relative">
-    <div class="bg-indigo-600 lg:block w-full md:w-1/2 xl:w-2/3 h-screen" v-if="!user">
+    <div class="bg-slate-900 lg:block w-full md:w-1/2 xl:w-2/3 h-screen" v-if="!user">
       <img
         src="https://cdn.pixabay.com/photo/2017/03/23/12/56/security-2168233_960_720.jpg"
         alt=""
@@ -17,7 +17,7 @@
     </div>
 
     <div
-      class="bg-slate-900 w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center"
+      class="bg-slate-900 w-full md:pb-1 pb-5 md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center"
     >
       <div class="w-full h-100">
         <span class="ml-4 flex justify-center items-center mx-auto">
