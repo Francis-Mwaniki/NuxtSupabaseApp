@@ -23,7 +23,7 @@
               <!-- Card name -->
               <h3 class="text-xl font-bold text-gray-100 mb-1">Reset your password</h3>
               <h6 class="text-sm font-light text-gray-100 mb-1 italic">
-                coming soon! to used for email
+                coming soon! to be used for email
               </h6>
             </header>
             <!-- Card body -->
