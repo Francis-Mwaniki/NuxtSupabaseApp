@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="flex flex-col md:flex-row h-screen items-center overflow-hidden relative"
-  >
+  <section class="flex flex-col md:flex-row h-screen items-center relative">
     <div class="bg-indigo-600 lg:block w-full md:w-1/2 xl:w-2/3 h-screen" v-if="!user">
       <img
         src="https://cdn.pixabay.com/photo/2017/03/23/12/56/security-2168233_960_720.jpg"
